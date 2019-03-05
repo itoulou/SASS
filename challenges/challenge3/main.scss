@@ -1,0 +1,15 @@
+%borderStyles {
+    border: {
+        radius: 10px;
+        width: 1px;
+        style: solid;
+        color: #000;
+    }
+}
+
+.container {
+    width: 1280px;
+    background-color: #fff;
+    margin: 0 auto;
+    @extend %border;
+}

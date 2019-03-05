@@ -1,0 +1,12 @@
+@mixin box($size, $background-color) {
+    width: $size;
+    height: $size / 2;
+    background-color: $background-color;
+    @content
+}
+
+$class: box;
+
+.box {
+    @include box(200px, #bada55);
+}

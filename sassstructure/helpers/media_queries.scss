@@ -1,0 +1,36 @@
+$tablet-width: 768px;
+$desktop-width: 992px;
+$large-desktop-width: 1200px;
+
+// @mixin tablet {
+//     @media (min-width: $tablet-width) {
+//         @content
+//     }
+// }
+
+@mixin tablet {
+    @media (min-width: $tablet-width) and (max-width: $desktop-width - 1px) {
+        @content
+    }
+}
+
+@mixin desktop {
+    @media (min-width: $desktop-width) and (max-width: $large-desktop-width - 1px) {
+        @content
+    }
+}
+
+
+// scss media query syntax
+// h1 {
+//     @media (min-width: 1200px) {
+//         color: red;
+//     }
+// }
+
+// css syntax for same code above
+// @media(min-width: 1200px) {
+//     h1 {
+//         color: red;
+//     }
+// }

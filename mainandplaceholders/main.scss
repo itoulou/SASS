@@ -1,0 +1,114 @@
+// .wrapper{
+//     width: 200px;
+//     height: 200px;
+//     background-color: #e84610;
+    
+//     p {
+//         font-size: 30px;
+//         color: orange;
+//     }
+// }
+
+// .wrapper {
+//     .main{
+//         .container{
+//             .article{
+//                 .post{
+//                     p{
+//                         color:blue;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+// not good coding practice to nest this many times
+
+// select the main element using its parent wrapper
+.main {
+    // & represents that wrapper is the parent of main
+    .wrapper & {
+        width: 300px;
+        height: 300px;
+        background-color: yellow;
+        
+    }
+}
+
+// font and text are prefixes
+// easier to write this way
+p {
+    font: {
+        family: open-sans;
+        size: 30px;
+        weight: 500;
+    }
+    
+    text: {
+        align: center;
+        transform: uppercase;
+    }
+}
+
+// the css for the above for example would be
+/* 
+font-family: open-sans;
+font-size: 30px;
+font-weight: 500;
+*/
+// basically means you don't have to write font or text or any
+// other common prefix several times
+
+// .container {
+//     background: {
+//         image: url("https://dummyimage.com/450x250/f00/fff"); 
+//         size: cover;
+//         position: center center;
+//         repeat: no-repeat;
+//     }
+// }
+
+/*you can re-write the code above like this using a placeholder
+should be used for code that needs to be reused.
+*/
+
+// %backgroundImage {
+//     background: {
+//         image: url("https://dummyimage.com/450x250/f00/fff"); 
+//         size: cover;
+//         position: center center;
+//         repeat: no-repeat;
+//     }
+// }
+
+// .container {
+//     @extend %backgroundImage;
+// }
+
+
+//this example each div inherits the backgroundImage placeholder
+// but with different background-images
+%backgroundImage {
+    background: {
+        size: cover;
+        position: center center;
+        repeat: no-repeat;
+    }
+}
+
+div {
+    @extend %backgroundImage
+}
+
+.container {
+    background-image: url("https://dummyimage.com/450x250/f00/fff");
+}
+
+.article {
+    background-image: url("https://dummyimage.com/450x250/000/fff");
+}
+
+.post {
+    background-image: url("https://dummyimage.com/450x250/ddd/fff");
+}
+

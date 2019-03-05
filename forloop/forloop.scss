@@ -1,0 +1,68 @@
+$class-name: item;
+
+//loop through index from 1 to 4
+@for $i from 1 through 4 {
+    // create 4 different class dynamically
+    .#{$class-name}-#{$i} {
+        width: 60px + $i;
+    }
+}
+
+//if-else
+// $random: 5;
+
+// h1 {
+//     @if $random > 5 {
+//         color: blue;
+//     } @else if $random == 3 {
+//         color: purple;
+//     } @else {
+//         color: orange;
+//     }
+// }
+
+//mixins similar to functions
+// use them for reusable code
+// button is the name with 2 parameters
+@mixin button($color, $size) {
+    width: $size;
+    height: $size / 2;
+    color: $color;
+    border: 1px solid $color;
+    
+    @if $color == #e84610 {
+        color: #fff;
+    } @else {
+        color: $color;
+    }
+}
+
+// content 
+// means it gets replaced by passed styles
+@mixin unicornify() {
+    background-color: pink;
+    color: white;
+    @content;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+p {
+    @include unicornify {
+        // where @content styles
+        // basically allows you additional styles outside the mixin
+        border: 1px solid pink;
+        border-radius: 100%;
+    }
+}
+
+.btn {
+    @include button(#e84610, 200px)
+}
+
+h1 {
+    @if 1 + 1 == 2 {
+        border: 1px solid black;
+    }
+}

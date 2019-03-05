@@ -1,0 +1,58 @@
+// function that converts pixels to ems
+// @function pxToEm($value, $base) {
+//     @return ($value / $base) + em; //em is the unit
+// }
+
+// h1 {
+//     font-size: pxToEm(32, 16);
+// }
+
+
+// Variables
+$blue: #0997d3;
+$red: #e84610;
+$green: #bada55;
+$black: #000000;
+$white: #ffffff;
+
+$width: 300px;
+$height: 500px;
+
+$colorsList: $blue, $red, $green, $black, $white;
+
+//map
+$colors: (
+    black: #000000,
+    red: #e84610,
+    green: #bada55
+);
+
+// loop through map
+@each $key, $value in $colors {
+    //.item is a class name
+    // this means item-black, then item-red and so on
+    .item-#{$key} {
+        background-color: $value;
+    }
+}
+
+body {
+    background-color: $black;
+}
+
+div {
+    // width: $width;
+    // height: $height;
+    border: 1px solid $black;
+}
+
+h1 {
+    color: $white;
+}
+
+//pass variable to css class
+$class: container;
+// means div.container
+div.#{$class} {
+    background-color: orange;
+}
